@@ -1,11 +1,11 @@
 {
-  "identifier": "com.cacophonyclaude.calendar-view",
+  "identifier": "com.bytebeet.calendar-view",
   "name": "Calendar View",
   "content_type": "SN|Component",
   "area": "editor-editor",
   "version": "1.0.0",
   "description": "Write natural-language date lines in your note and view them as a calendar.",
-  "url": "https://cacophonyclaude.github.io/sn-calendar-view",
-  "hosted_url": "https://cacophonyclaude.github.io/sn-calendar-view",
-"latest_url": "https://cacophonyclaude.github.io/sn-calendar-view/ext.json"
+  "url": "https://bytebeet.github.io/sn-calendar-view",
+  "hosted_url": "https://bytebeet.github.io/sn-calendar-view",
+  "latest_url": "https://bytebeet.github.io/sn-calendar-view/ext.json"
 }
