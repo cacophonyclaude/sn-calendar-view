@@ -1,0 +1,137 @@
+.monthView {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: scroll;        /* always reserve scrollbar gutter so width is stable */
+  scrollbar-gutter: stable;  /* modern browsers: reserve space even when not needed */
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--sn-stylekit-border-color, #e0e0e0);
+  flex-shrink: 0;
+}
+
+.headerCell {
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--sn-stylekit-foreground-color, #333);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dayLabelShort { display: none; }
+.dayLabelLong  { display: inline; }
+
+@media (max-width: 767px) {
+  .dayLabelShort { display: inline; }
+  .dayLabelLong  { display: none; }
+}
+
+/* ── Week row: flex row so dayCells aren't disrupted by the overlay ── */
+.weekRow {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  min-height: 120px;
+  border-bottom: 1px solid var(--sn-stylekit-border-color, #e0e0e0);
+  flex-shrink: 0;
+}
+
+/* ── Day cell ── */
+.dayCell {
+  flex: 1;
+  min-width: 0;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 2px 4px;
+  cursor: pointer;
+  border-right: 1px solid var(--sn-stylekit-border-color, #e0e0e0);
+}
+
+.dayCell:last-child {
+  border-right: none;
+}
+
+.weekRow:has(.dayCell:hover) .dayCell {
+  background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f5f5f5) 60%, transparent);
+}
+
+.otherMonth .dayNumber {
+  opacity: 0.35;
+}
+
+.dayNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.78rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.today {
+  background: var(--sn-stylekit-info-color, #086DD6);
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+/* ── Event layer: absolute overlay, own grid for chip placement ── */
+.eventLayer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 28px repeat(3, 22px) 1fr;
+  pointer-events: none;
+}
+
+.eventLayer > * {
+  pointer-events: auto;
+}
+
+/* ── +N more link ── */
+.moreLink {
+  font-size: 0.68rem;
+  color: var(--sn-stylekit-info-color, #086DD6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 2px;
+  text-align: left;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+/* Mobile: show chips at reduced size; hide per-cell text labels */
+@media (max-width: 767px) {
+  .dots {
+    display: none;
+  }
+
+  .eventLayer {
+    grid-template-rows: 24px repeat(3, 32px) 1fr;
+  }
+
+  .weekRow {
+    min-height: 136px;
+  }
+
+  .dayCell {
+    min-height: 136px;
+  }
+}
+
+@media (min-width: 768px) {
+  .dots {
+    display: none;
+  }
+}

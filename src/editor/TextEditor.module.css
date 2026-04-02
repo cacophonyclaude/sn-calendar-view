@@ -1,0 +1,57 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.editor {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 16px;
+  box-sizing: border-box;
+  background: var(--sn-stylekit-background-color, #fff);
+  color: var(--sn-stylekit-foreground-color, #000);
+  font-size: var(--sn-stylekit-font-size-editor, 15px);
+  font-family: var(--sn-stylekit-editor-font-family, 'Roboto Slab', serif);
+  line-height: 2.3;
+  tab-size: 2;
+}
+
+/* Verify mode — accent strips, positioned in content-space and shifted by the
+   container's transform (updated directly on scroll, bypassing React renders) */
+.accentContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.lineAccent {
+  position: absolute;
+  left: 5px;
+  width: 3px;
+  border-radius: 1.5px;
+  background: var(--sn-stylekit-info-color, #086DD6);
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+/* Per-line highlight overlay — fades out, never flashes the whole textarea */
+.lineHighlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(255, 210, 0, 0.38);
+  pointer-events: none;
+  animation: fadeHighlight 900ms ease-out forwards;
+}
+
+@keyframes fadeHighlight {
+  0%   { opacity: 1; }
+  50%  { opacity: 1; }
+  100% { opacity: 0; }
+}

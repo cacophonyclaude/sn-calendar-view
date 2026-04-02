@@ -1,0 +1,168 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  background: var(--sn-stylekit-background-color, #fff);
+  color: var(--sn-stylekit-foreground-color, #000);
+}
+
+/* ── Toolbar ── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  height: 40px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--sn-stylekit-border-color, #e0e0e0);
+  background: var(--sn-stylekit-contrast-background-color, #f8f8f8);
+  gap: 8px;
+}
+
+.appTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sn-stylekit-foreground-color, #333);
+  opacity: 0.7;
+  letter-spacing: 0.02em;
+}
+
+.verifyBtn {
+  background: none;
+  border: 1px solid var(--sn-stylekit-border-color, #ccc);
+  border-radius: 4px;
+  color: var(--sn-stylekit-foreground-color, #333);
+  cursor: pointer;
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  height: 28px;
+}
+
+.verifyBtn:hover {
+  background: var(--sn-stylekit-contrast-background-color, #f0f0f0);
+}
+
+.verifyActive {
+  background: var(--sn-stylekit-info-color, #086DD6);
+  color: #fff;
+  border-color: var(--sn-stylekit-info-color, #086DD6);
+}
+
+.verifyActive:hover {
+  filter: brightness(0.9);
+  background: var(--sn-stylekit-info-color, #086DD6);
+}
+
+.splitBtn {
+  background: none;
+  border: 1px solid var(--sn-stylekit-border-color, #ccc);
+  border-radius: 4px;
+  color: var(--sn-stylekit-foreground-color, #333);
+  cursor: pointer;
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  height: 28px;
+}
+
+.splitBtn:hover {
+  background: var(--sn-stylekit-contrast-background-color, #f0f0f0);
+}
+
+.splitActive {
+  background: var(--sn-stylekit-info-color, #086DD6);
+  color: #fff;
+  border-color: var(--sn-stylekit-info-color, #086DD6);
+}
+
+.splitActive:hover {
+  filter: brightness(0.9);
+  background: var(--sn-stylekit-info-color, #086DD6);
+}
+
+.toolbarNav {
+  display: flex;
+  gap: 4px;
+}
+
+.toolbarNavBtn {
+  background: none;
+  border: 1px solid var(--sn-stylekit-border-color, #ccc);
+  border-radius: 4px;
+  color: var(--sn-stylekit-foreground-color, #333);
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.toolbarNavBtn:hover {
+  background: var(--sn-stylekit-contrast-background-color, #f0f0f0);
+}
+
+.mobileTabs {
+  display: flex;
+  border: 1px solid var(--sn-stylekit-border-color, #ccc);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mobileTab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  height: 28px;
+  color: var(--sn-stylekit-foreground-color, #333);
+}
+
+.activeTab {
+  background: var(--sn-stylekit-info-color, #086DD6);
+  color: #fff;
+}
+
+/* ── Main content ── */
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editorPane {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.calendarPane {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* ── Drag handle ── */
+.resizeHandle {
+  width: 5px;
+  flex-shrink: 0;
+  cursor: col-resize;
+  background: var(--sn-stylekit-border-color, #e0e0e0);
+  transition: background 0.15s;
+  position: relative;
+}
+
+.resizeHandle:hover {
+  background: var(--sn-stylekit-info-color, #086DD6);
+}
+
+.resizeHandle::after {
+  content: '';
+  position: absolute;
+  inset: 0 -4px;  /* widen the hit area without widening the visual */
+}
