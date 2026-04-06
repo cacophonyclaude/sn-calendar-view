@@ -86,6 +86,10 @@
 .dayLabelShort { display: none; }
 .dayLabelLong  { display: inline; }
 
+.weekend {
+  background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f0f0f0) 60%, transparent);
+}
+
 @media (max-width: 767px) {
   .dayLabelShort { display: inline; }
   .dayLabelLong  { display: none; }

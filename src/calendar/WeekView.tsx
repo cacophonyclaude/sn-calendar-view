@@ -176,7 +176,7 @@ export default function WeekView({ weekStart, events, onEventClick }: Props) {
         {days.map((day, i) => {
           const isToday = sameDay(day, today)
           return (
-            <div key={i} className={`${styles.colHeader} ${isToday ? styles.todayCol : ''}`}>
+            <div key={i} className={`${styles.colHeader} ${isToday ? styles.todayCol : ''} ${i >= 5 ? styles.weekend : ''}`}>
               <span className={`${styles.colDayName} ${styles.dayLabelShort}`}>{DAY_ABBRS_SHORT[i]}</span>
               <span className={`${styles.colDayName} ${styles.dayLabelLong}`}>{DAY_ABBRS_LONG[i]}</span>
               <span className={`${styles.colDayNum} ${isToday ? styles.todayCircle : ''}`}>
@@ -221,7 +221,7 @@ export default function WeekView({ weekStart, events, onEventClick }: Props) {
                   })
                   const topPcts = resolvePositions(rawPcts, 14)
                   return (
-                    <div key={di} className={styles.sectionDayCol}>
+                    <div key={di} className={`${styles.sectionDayCol} ${di >= 5 ? styles.weekend : ''}`}>
                       {dayEvs.map((ev, idx) => (
                         <button
                           key={ev.id}
@@ -270,7 +270,7 @@ export default function WeekView({ weekStart, events, onEventClick }: Props) {
               return (
                 <div
                   key={di}
-                  className={`${styles.dayColumn} ${isPastDay ? styles.pastDayColumn : ''}`}
+                  className={`${styles.dayColumn} ${isPastDay ? styles.pastDayColumn : ''} ${di >= 5 ? styles.weekend : ''}`}
                 >
                   {dayEvs.map((ev, idx) => {
                     const top =

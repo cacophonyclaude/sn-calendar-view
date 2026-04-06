@@ -36,7 +36,7 @@ export default function MonthView({ weekStart, events, onEventClick, onWeekClick
       {/* Day-of-week header */}
       <div className={styles.header}>
         {DAY_LABELS_SHORT.map((short, i) => (
-          <div key={short} className={styles.headerCell}>
+          <div key={short} className={`${styles.headerCell} ${i >= 5 ? styles.weekend : ''}`}>
             <span className={styles.dayLabelShort}>{short}</span>
             <span className={styles.dayLabelLong}>{DAY_LABELS_LONG[i]}</span>
           </div>
@@ -71,7 +71,7 @@ export default function MonthView({ weekStart, events, onEventClick, onWeekClick
               return (
                 <div
                   key={di}
-                  className={styles.dayCell}
+                  className={`${styles.dayCell} ${di >= 5 ? styles.weekend : ''}`}
                   onClick={() => onWeekClick(rowStart)}
                 >
                   <div className={`${styles.dayNumber} ${isToday ? styles.today : ''}`}>
