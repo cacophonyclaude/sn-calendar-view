@@ -28,7 +28,7 @@
 .dayLabelLong  { display: inline; }
 
 .weekend {
-  background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f0f0f0) 60%, transparent);
+  background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f0f0f0) 30%, transparent);
 }
 
 @media (max-width: 767px) {
@@ -64,6 +64,10 @@
 
 .weekRow:has(.dayCell:hover) .dayCell {
   background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f5f5f5) 60%, transparent);
+}
+
+.weekRow:has(.dayCell:hover) .dayCell.weekend {
+  background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f5f5f5) 75%, transparent);
 }
 
 .otherMonth .dayNumber {

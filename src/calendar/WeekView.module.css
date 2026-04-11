@@ -87,7 +87,7 @@
 .dayLabelLong  { display: inline; }
 
 .weekend {
-  background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f0f0f0) 60%, transparent);
+  background: color-mix(in srgb, var(--sn-stylekit-contrast-background-color, #f0f0f0) 30%, transparent);
 }
 
 @media (max-width: 767px) {
