@@ -23,10 +23,10 @@
   filter: brightness(0.95);
 }
 
-/* Range bar: solid accent color */
+/* Range bar: same light tint as single-day chips */
 .rangeBar {
-  background: var(--sn-stylekit-info-color, #086DD6);
-  color: #fff;
+  background: color-mix(in srgb, var(--sn-stylekit-info-color, #086DD6) 25%, transparent);
+  color: var(--sn-stylekit-foreground-color, #000);
   border-radius: 0;
 }
 
